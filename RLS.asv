@@ -1,0 +1,53 @@
+%Program to obtain Scheduling Table for grap
+%
+%PLease Read the README.pdf file before running this file
+%
+%
+%Author: Onkar 
+%
+%
+%
+%The following code is used to just implement the filter but the main use of the
+%code is that it is further used to draw the directed graph by using the
+%dependencies in this code.
+%
+%
+%
+%
+%
+%
+%t1 = task('t1',1);
+t2 = task('t2',1);
+t3 = task('t3',1);
+t4 = task('t4',1);
+t5 = task('t5',1);
+t6 = task('t6',1);
+t7 = task('t7',1);
+t8 = task('t8',1);
+t9 = task('t9',1);
+t10 = task('t10',1);
+t11 = task('t11',1);
+t12 = task('t12',1);
+t13 = task('t13',1);
+%t14 = task('t14',1);
+
+
+p = problem('P2|prec,pj=1|Cmax');
+prec = [
+        0 0 0 1 0 0 0 0 0 0 0 0 0
+        0 0 0 1 1 0 0 0 0 0 0 0 0
+        0 0 0 0 1 1 0 0 0 0 0 0 0
+        0 0 0 0 0 0 1 1 0 0 0 0 0
+        0 0 0 0 0 0 0 0 1 0 0 0 0
+        0 0 0 0 0 0 0 0 1 1 0 0 0
+        0 0 0 0 0 0 0 0 0 0 1 0 0
+        0 0 0 0 0 0 0 0 0 0 1 1 0
+        0 0 0 0 0 0 0 1 0 0 0 0 1
+        0 0 0 0 0 0 0 0 0 0 0 0 1
+        0 0 0 0 0 0 0 0 0 0 0 0 0
+        0 0 0 0 0 0 0 0 0 0 0 0 0
+        0 0 0 0 0 0 0 0 0 0 0 0 0
+    ];
+T = taskset([t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13],prec);
+TS= coffmangraham(T,p);
+plot(TS);
